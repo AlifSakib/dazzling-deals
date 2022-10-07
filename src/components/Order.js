@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { deleteShoppingCart, removeFromDb } from "../utilities/fakedb";
 import Cart from "./Cart";
 import ReviewItem from "./ReviewItem";
@@ -30,6 +30,14 @@ const Order = () => {
             deletItem={deletItem}
           ></ReviewItem>
         ))}
+        {cart.length === 0 && (
+          <h1 className="font-montserrat text-xl font-bold">
+            No Item From Review ,{" "}
+            <span className="text-blue-700 underline underline-offset-4">
+              <Link to="/shop">Shop Here</Link>
+            </span>
+          </h1>
+        )}
       </div>
       <div className="w-1/2 font-montserrat bg-sky-400 h-96 py-10 rounded-lg mx-8 sticky top-0">
         <Cart cart={cart} clearCart={clearCart}></Cart>

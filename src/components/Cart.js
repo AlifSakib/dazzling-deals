@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cart = ({ cart, clearCart }) => {
+const Cart = ({ cart, clearCart, children }) => {
   console.log(cart);
   let total = 0;
   let shipping = 0;
@@ -40,6 +40,7 @@ const Cart = ({ cart, clearCart }) => {
           Clear Cart
         </button>
       </div>
+      {children}
     </div>
   );
 };
