@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, clearCart }) => {
   console.log(cart);
   let total = 0;
   let shipping = 0;
@@ -34,6 +34,11 @@ const Cart = ({ cart }) => {
           Grand Total
         </span>
         <span>${total + quantity + tax}</span>
+      </div>
+      <div className="bg-red-500 text-white text-center rounded-lg py-1">
+        <button className="w-full" onClick={clearCart}>
+          Clear Cart
+        </button>
       </div>
     </div>
   );
