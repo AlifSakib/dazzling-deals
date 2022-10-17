@@ -58,14 +58,14 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/inventory"
                   aria-label="Product pricing"
                   title="Product pricing"
                   className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
                   Inventory
-                </a>
+                </Link>
               </li>
               <li>
                 <a

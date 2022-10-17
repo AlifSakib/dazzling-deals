@@ -1,9 +1,13 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/UserContext";
 
 const SignIn = () => {
   const { signInUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "shop";
   //TODO: States;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,6 +33,8 @@ const SignIn = () => {
         const user = userCredential.user;
         setUser(user);
         console.log(user);
+        /* navigate("/shop"); */
+        navigate(from, { replace: true });
         // ...
       })
       .catch((error) => {

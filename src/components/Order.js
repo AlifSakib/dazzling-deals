@@ -40,7 +40,13 @@ const Order = () => {
         )}
       </div>
       <div className="w-1/2 font-montserrat bg-sky-400 h-96 py-10 rounded-lg mx-8 sticky top-0">
-        <Cart cart={cart} clearCart={clearCart}></Cart>
+        <Cart cart={cart} clearCart={clearCart}>
+          <Link to="/shipping">
+            <button className="bg-red-500 text-white text-center rounded-lg py-1 w-full mt-3">
+              Proceed Shipping
+            </button>
+          </Link>
+        </Cart>
       </div>
     </div>
   );
