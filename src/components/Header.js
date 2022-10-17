@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/UserContext";
 
 const Header = () => {
+  const { user, signOutUser } = useContext(AuthContext);
+  console.log(user);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div>
@@ -74,25 +77,50 @@ const Header = () => {
                   About us
                 </a>
               </li>
+
+              {user?.uid ? (
+                <li>
+                  <button
+                    onClick={signOutUser}
+                    aria-label="Product pricing"
+                    title="Product pricing"
+                    className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  >
+                    Sign Out
+                  </button>
+                </li>
+              ) : (
+                <>
+                  <li>
+                    <Link
+                      to="signin"
+                      aria-label="Product pricing"
+                      title="Product pricing"
+                      className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    >
+                      SignIn
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/signup"
+                      aria-label="Product pricing"
+                      title="Product pricing"
+                      className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    >
+                      SignUp
+                    </Link>
+                  </li>
+                </>
+              )}
               <li>
-                <Link
-                  to="signin"
+                <button
                   aria-label="Product pricing"
                   title="Product pricing"
                   className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
-                  SignIn
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/signup"
-                  aria-label="Product pricing"
-                  title="Product pricing"
-                  className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
-                >
-                  SignUp
-                </Link>
+                  {user?.email}
+                </button>
               </li>
             </ul>
             <div className="lg:hidden">
