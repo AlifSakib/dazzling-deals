@@ -74,6 +74,26 @@ const Header = () => {
                   About us
                 </a>
               </li>
+              <li>
+                <Link
+                  to="signin"
+                  aria-label="Product pricing"
+                  title="Product pricing"
+                  className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
+                >
+                  SignIn
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/signup"
+                  aria-label="Product pricing"
+                  title="Product pricing"
+                  className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
+                >
+                  SignUp
+                </Link>
+              </li>
             </ul>
             <div className="lg:hidden">
               <button
